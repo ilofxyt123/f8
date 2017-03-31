@@ -1101,7 +1101,9 @@ $(function(){
             $(".hp").show();
         }
     });
-
+    var p1touch = {
+        startY:0,
+    };
 
     $(".startbtn").on({
        touchstart:function(){
