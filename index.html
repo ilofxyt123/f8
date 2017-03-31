@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var ua = navigator.userAgent;
+        var phoneWidth = parseInt(window.screen.width), phoneScale = phoneWidth / 640;
+        if (/Android (\d+\.\d+)/.test(ua)) {
+            var version = parseFloat(RegExp.$1);
+            var qqv = ua.match(/MQQBrowser\/(\d+)/) ? ua.match(/MQQBrowser\/(\d+)/)[1] : 0;
+            if (version > 2.3 && qqv < 6) {
+                document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ", maximum-scale = " + phoneScale + ', target-densitydpi=device-dpi,user-scalable=no">')
+            } else {
+                document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi,user-scalable=no">')
+            }
+        } else {
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">')
+        }
+    </script>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <link href="css/common.css" rel="stylesheet" type="text/css">
+    <script>
+        var css;
+        css = '<'+'link '+'href='+"css/index.css?v"+Math.random()+' rel='+"stylesheet "+'type='+"text/css"+'>'
+        document.write(css);
+        css = '<'+'link '+'href='+"css/animate.css?v"+Math.random()+' rel='+"stylesheet "+'type='+"text/css"+'>'
+        document.write(css)
+    </script>
+    <title>一“陆”狂飙，极速挑战</title>
+</head>
+<body>
+<div class="top none">
+    <div class="caution"></div>
+    <div class="bgm"></div>
+    <div class="logo"></div>
+</div>
+
+<div class="container P_bg none">
+    <img data-src="images/bg.jpg" class="lazy">
+</div>
+
+<div class="container P_loading none">
+    <canvas id="loader"></canvas>
+    <!--<img src="images/loading-text.png" class="loading-text">-->
+    <div class="fangxiangpan none"></div>
+    <img src="images/loadingbg.jpg" class="loading_bg">
+</div>
+
+<div class="container P1 none">
+    <img src="images/p1-bg.jpg" class="p1_bg">
+    <img src="images/p1-text-2.png" class="p1-1 move_from_right opacity">
+    <img src="images/p1-text-1.png" class="p1-2 move_from_left opacity">
+    <img src="images/p1-text-3.png" class="p1-3 move_from_right opacity">
+    <div class="startbtn"></div>
+    <img src="images/p1-img-2.png" class="car opacity">
+</div>
+
+
+<div class="container P_video none">
+    <video src="video/video1.mp4?v77" id="video"  width="640" x-webkit-airplay="true" webkit-playsinline playsinline airplay="allow" x5-video-player-type="h5"></video>
+</div>
+
+<div class="container P_game none">
+    <div id="game" class="main">
+        <canvas id="canvas"></canvas>
+        <div id="cons"></div>
+        <img data-src="images/game/yun-1.png" class="main lazy  delay01" id="yun_1" />
+        <img data-src="images/game/yun-2.png" class="main lazy  delay05" id="yun_2" />
+        <img data-src="images/game/yun-3.png" class="main lazy  delay03" id="yun_3" />
+        <img data-src="images/game/yun-4.png" class="main lazy  delay05" id="yun_4" />
+
+        <!-- 提示 -->
+        <div id="ts" class="main">
+            <div class="black"></div>
+            <img data-src="images/p2-text-3.png?v6" class="ts_text ts_text1 lazy move_from_left2 opacity delay18" />
+            <img data-src="images/p2-text-8.png" class="ts_text ts_text2 lazy move_from_right2 opacity delay18" />
+            <img data-src="images/p2-text-9.png" class="ts_text ts_text3 lazy move_from_left2 opacity delay18" />
+            <!-- <img src="images/ts_phone.png" class="ts_phone" /> -->
+            <div class="ts_phone ts_phone_a"></div>
+            <img data-src="images/game/ts_arrow.png" class="ts_arrow lazy" />
+        </div>
+
+        <!-- 倒计时 -->
+        <div id="djs" class="main hide">
+            <div class="black"></div>
+            <img data-src="images/game/djs_3.png" class="djs_3 lazy" />
+            <img data-src="images/game/djs_2.png" class="djs_2 lazy" />
+            <img data-src="images/game/djs_1.png" class="djs_1 lazy" />
+        </div>
+
+        <!-- 撞击提示 -->
+        <div id="hitTs" class="main hide">
+            <div class="black"></div>
+            <img data-src="images/game/ts_hit_text1.png" class="ts_hit_text1 lazy" />
+            <img data-src="images/game/ts_hit_text2.png" class="ts_hit_text2 lazy" />
+            <img data-src="images/game/goon.png" class="goon lazy" />
+        </div>
+
+        <!-- 失败提示 -->
+        <div id="gameover" class="main hide">
+            <div class="black"></div>
+            <img data-src="images/game/gameover.png" class="gameover gameover_a lazy" />
+        </div>
+
+        <div id="win" class="main hide">
+            <div class="black"></div>
+            <img data-src="images/game/win.png" class="win gameover_a lazy" />
+        </div>
+
+    </div>
+</div>
+
+<div class="container P_game_result none">
+    <div  class="win none">
+        <img data-src="images/text.png" class="pgr-title move_from_left2 opacity delay03 lazy"><!--恭喜您-->
+        <div class="pgr-score move_from_right2 opacity delay03">
+            <img data-src="images/p3-text-1.png" class="lazy"><!--一脚油门+成绩-->
+            <span class="distance win-distance Q">190.8</span>
+            <span class="percent win-percent Q">95%</span>
+        </div>
+        <img data-src="images/p3-button-1.png" class="pgr-btn1 pgr-btn1-win opacity move_from_left2 delay03 lazy"><!--我要抽奖-->
+        <img data-src="images/p3-button-2.png" class="pgr-btn2 pgr-btn2-win opacity move_from_right2 delay03 lazy"><!--再次挑战-->
+        <img data-src="images/p3-button-3.png" class="pgr-btn3 pgr-btn3-win opacity move_from_down_long delay07 lazy"><!--炫耀一下-->
+    </div>
+
+<div class="lose none">
+    <img data-src="images/p6-text-3.png" class="pgr-title move_from_left2 opacity delay03 lazy">
+    <div class="pgr-score-lose move_from_right2 opacity delay03">
+        <img data-src="images/p7-text-3.png" class="lazy">
+        <span class="distance lose-distance Q">190.8</span>
+        <span class="percent lose-percent Q">95%</span>
+    </div>
+    <img data-src="images/p7-button-1.png" class="pgr-btn1 pgr-btn1-lose opacity move_from_left2 delay03 lazy"><!--不服再战-->
+    <img data-src="images/p5-button-2.png" class="pgr-btn2 pgr-btn2-lose opacity move_from_right2 delay03 lazy"><!--邀友来战-->
+    <img data-src="images/p7-button-2.png" class="pgr-btn3 pgr-btn3-lose opacity move_from_down_long delay07 lazy"><!--挑战更多-->
+</div>
+
+
+    <img data-src="images/p7-text-1.png" class="pgr-1 pgr-text none move_from_right2 opacity delay03 lazy"><!--0-60-->
+    <img data-src="images/p7-text-2.png" class="pgr-2 pgr-text none move_from_right2 opacity delay03 lazy"><!--60-99-->
+    <img data-src="images/p3-text-4.png" class="pgr-3 pgr-text none move_from_right2 opacity delay03 lazy"><!--100-110-->
+    <img data-src="images/p3-text-3.png" class="pgr-4 pgr-text none move_from_right2 opacity delay03 lazy"><!--110-120-->
+    <img data-src="images/p3-text-5.png" class="pgr-5 pgr-text none move_from_right2 opacity delay03 lazy"><!--120+-->
+
+
+
+
+</div>
+
+<div class="container P_fill none">
+    <img data-src="images/text.png" class="pf-title move_from_left2 opacity delay03 lazy"><!--恭喜您-->
+
+    <img data-src="images/p4-text-1.png" class="pf-1 move_from_right2 opacity delay03 lazy">
+    <div class="pf-2 move_from_right2 opacity delay03">
+        <img data-src="images/p4-img-1.png" class="pf-2-bg lazy"><!--输入手机号-->
+        <input id="phoneNumber" class="input-phone" type="tel" oninput="output.utils.limitNum(this,11)" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')">
+    </div>
+    <div class="pf-3 move_from_right2 opacity delay03">
+        <img data-src="images/p4-img-2.png" class="pf-3-l lazy"><!--验证码输入框-->
+        <input id="code" class="input-code" type="tel" oninput="output.utils.limitNum(this,4)" onkeyup="this.value=this.value.replace(/\D/g,'')"  onafterpaste="this.value=this.value.replace(/\D/g,'')">
+        <div class="getCode">
+            <img data-src="images/p4-button-1.png" class="codebg codebg1 lazy">
+            <img data-src="images/codebg.png" class="codebg codebg2 lazy none">
+            <span class="clock none">59s</span>
+        </div><!--获取验证码-->
+
+    </div>
+    <img data-src="images/p4-text-2.png" class="pf-4 opacity move_from_down_long delay07 lazy"><!--本活动-->
+    <img data-src="images/p3-button-1.png" class="pf-btn opacity move_from_down_long delay11 lazy"><!--立即抽奖-->
+    <div class="havePrizeBox none"><!--已经抽过奖提示框-->
+        <img data-src="images/p9-text-1.png" class="havePrizetip lazy">
+        <img data-src="images/p7-button-2.png" class="havePrize-btn1 lazy"><!--挑战更多-->
+        <img data-src="images/p5-button-2.png" class="havePrize-btn2 lazy"><!--邀友来战-->
+    </div>
+
+    <div class="Error phoneError none">
+        <img data-src="images/p4-img-3.png" class="lazy">
+    </div>
+    <div class="Error codeError none">
+        <img data-src="images/p4-img-4.png" class="lazy">
+    </div>
+
+</div>
+
+<div class="container P_prize_result none">
+    <div class="havePrize none"><!--中奖-->
+        <img data-src="images/text.png" class="ppr-title move_from_left2 opacity delay03 lazy">
+        <img data-src="images/p5-img-1.png" class="prize-pic prize-pic1 none move_from_left2 opacity delay03 lazy"><!--电影券-->
+        <img data-src="images/p5-img-2.png" class="prize-pic prize-pic2 none move_from_left2 opacity delay03 lazy"><!--iPad-->
+        <img data-src="images/p5-img-3.png?v4" class="prize-pic prize-pic3 none move_from_left2 opacity delay03 lazy"><!--AppleWatch-->
+
+        <img data-src="images/p5-text-1.png" class="ppr-text move_from_right2 opacity delay03 lazy">
+        <img data-src="images/p5-button-1.png" class="ppr-btn1 move_from_down_long opacity delay07 lazy">
+        <img data-src="images/p5-button-2.png" class="ppr-btn2 move_from_down_long opacity delay08 lazy">
+
+        <img data-src="images/p5-text-2.png" class="ppr-bottom move_from_down_long opacity delay09 lazy">
+    </div>
+    <div class="noPrize none"><!--没中奖-->
+        <img data-src="images/p6-text-3.png" class="ppr-title move_from_left2 opacity delay03 lazy">
+        <img data-src="images/p6-text-4.png" class="ppr-n1 move_from_left2 opacity delay03 lazy">
+        <img data-src="images/p6-text-5.png" class="ppr-n2 move_from_right2 opacity delay03 lazy">
+
+
+        <img data-src="images/xinyinghu.png" class="new_user lazy">
+        <img data-src="images/laoyonghu.png" class="old_user lazy">
+        <img data-src="images/p3-button-2.png" class="again lazy">
+        <img data-src="images/p6-button-2.png" class="invite lazy">
+
+        <div class="new_k k none">
+            <img data-src="images/esc.png" class="newxx lazy">
+            <img data-src="images/p6-text-1.png" class="newtxt lazy">
+            <img data-src="images/p5-button-1.png" class="newbtn lazy">
+        </div>
+        <div class="old_k k none">
+            <img data-src="images/esc.png" class="oldxx lazy">
+            <div class="old1 old none"><!--新用户注册-->
+                <img data-src="images/p6-text-1.png" class="oldtxt lazy">
+                <img data-src="images/p5-button-1.png" class="oldbtn oldbtn1 lazy">
+            </div>
+            <div class="old2 old"><!--速去购买-->
+                <img data-src="images/p6-text-7.png" class="oldtxt lazy">
+                <img data-src="images/p6-button-3.png" class="oldbtn oldbtn2 lazy">
+            </div>
+            <div class="old3 old"><!--邀友来战-->
+                <img data-src="images/p6-text-6.png" class="oldtxt lazy">
+                <img data-src="images/p5-button-2.png" class="oldbtn oldbtn3 lazy">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container P_more none">
+    <img src="images/bg.jpg" class="morebg">
+    <!--<img src="images/p6-text-5.png" class="pm-1 move_from_right2 opacity delay03">-->
+    <img data-src="images/esc.png" class="morexx lazy">
+    <div class="move_from_left2 opacity delay03 act1">
+        <img data-src="images/p6-text-1.png" class="pm-2 lazy">
+        <img data-src="images/p5-button-1.png" class="pm-btn1 lazy"><!--新用户注册-->
+    </div>
+
+
+    <div class="move_from_right2 opacity delay03 act2">
+        <img data-src="images/p6-text-7.png" class="pm-3 lazy">
+        <img data-src="images/p6-button-3.png" class="pm-btn3 lazy"><!--速去购买-->
+    </div>
+
+    <div class="move_from_left2 opacity delay03 act3">
+        <img data-src="images/p6-text-6.png" class="pm-4 lazy">
+        <img data-src="images/p6-button-2.png" class="pm-btn4 lazy"><!--邀友来战-->
+    </div>
+</div>
+
+<div class="container P_share none">
+    <div class="share_video sharecar"></div>
+</div>
+
+<div class="container P_rule none">
+    <img data-src="images/bg.jpg" class="rule_bg lazy">
+    <div class="rule">
+        <img data-src="images/guizeye.png" class="txt lazy">
+        <img data-src="images/quedin.png" class="iknow lazy">
+    </div>
+</div>
+
+
+
+<div class="container hp none">
+    <div class="hp_box">
+        <img src="images/phone.png" class="phone">
+        <img src="images/weile.png" class="hp_tip">
+    </div>
+</div>
+<div class="hidepic none">
+
+</div>
+<audio id="bgmusic" src="music.m4a?v40"  loop="loop" class="iosPreload"></audio>
+<audio id="shache" src="shache.mp3"  class="iosPreload"></audio>
+<audio id="music_green" src="music/green.m4a?v7" type="audio/mpeg"></audio>
+<audio id="music_hit" src="shache.mp3?v6" type="audio/mpeg"></audio>
+<audio id="music_run" src="music/run.m4a?v1" type="audio/mpeg" loop="loop"></audio>
+<audio id="music_enter" src="music/enter.mp3?v9" type="audio/mpeg"></audio>
+<audio id="start" src="start.m4a?v6" type="audio/mpeg"></audio>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script>
+    var js;
+    js = '<' + 'script ' + 'src=' + "js/game.js?v" + Math.random() + '>' + '</' + 'script' + '>'
+    document.write(js)
+    js = '<' + 'script ' + 'src=' + "js/index.js?v" + Math.random() + '>' + '</' + 'script' + '>'
+    document.write(js)
+</script>
+</body>
+</html>
