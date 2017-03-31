@@ -152,8 +152,6 @@
                 "images/p1-text-1.png",
                 "images/p1-text-2.png",
                 "images/p1-text-3.png",
-                "images/p2-img-1.png",
-                "images/p2-img-2.png",
                 "images/p2-text-1.png",
                 "images/p2-text-2.png",
                 "images/p2-text-3.png",
@@ -277,8 +275,6 @@
                 "images/p1-text-1.png",
                 "images/p1-text-2.png",
                 "images/p1-text-3.png",
-                "images/p2-img-1.png",
-                "images/p2-img-2.png",
                 "images/p2-text-1.png",
                 "images/p2-text-2.png",
                 "images/p2-text-3.png",
@@ -758,8 +754,10 @@ $(function(){
         utils = output.utils;
     media.WxMediaInit();
 
+var audio1 = new Audio(),
+    ios = utils.browser("iPhone");
 
-    var ios = utils.browser("iPhone");
+audio1.onloadedmetadata = function(){
     if(ios){
         main.f.iosStart();
     }
@@ -767,6 +765,10 @@ $(function(){
         main.f.androidStart();
         main.f.playbgm();
     }
+};
+    audio1.src = "start.m4a";
+
+
     game.gameOverCallBack = function (e) {//数据层面
         $("#gameover").fadeIn(500);
         var score = main.a.distance = game.getJdValue()*300;
