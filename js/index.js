@@ -1108,12 +1108,10 @@ $(function(){
     $(".startbtn").on({
        touchstart:function(){
            if(!main.a.p1touchAllow){return;};
-           $(this).addClass("press");
            main.f.pgame();//视图层面
            document.getElementById("start").play();
            setTimeout(function(){
                main.a.car.addClass("car_leave");
-               $(".startbtn").fadeOut();
                $(".P1").addClass("PagetoUp");
            },1000);
            setTimeout(function(){
@@ -1123,8 +1121,8 @@ $(function(){
            },1500);
        },
         touchend:function(){
-            $(this).removeClass("press");
             main.a.p1touchAllow = false;
+            $(this).fadeOut();
         }
     });
 

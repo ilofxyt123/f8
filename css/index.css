@@ -87,7 +87,8 @@ html,body{
             .p1-3{top:240px;left:50%;margin-left:-237px;}
             .p1-btn{top:830px;right:45px;z-index:10;}
             .car{position: absolute;top:873px;left:50%;margin-left:-238px;z-index:5;}
-            .startbtn{position:absolute;width:123px;height:123px;top:725px;left:50%;margin-left:-61px;background-image: url("../images/loadbtn.png");background-repeat: no-repeat;}
+            /*.startbtn{position:absolute;width:123px;height:123px;top:725px;left:50%;margin-left:-61px;background-image: url("../images/loadbtn.png");background-repeat: no-repeat;}*/
+            .startbtn{position:absolute;width:123px;height:123px;top:725px;left:50%;margin-left:-61px;}
         .P_video{}
         .P_share{z-index:99;background-color: rgba(0,0,0,0.8);}
             .sharecar{width:640px;height:1040px;background-image:url("../images/p8-img-1.png");background-repeat: no-repeat;}
