@@ -47,14 +47,11 @@ html,body{
 .text{position: absolute;width: 100%;left: 0;top: 0;text-align: center;font-size: 25px;color: #ff0000;}
 
 #cons{position: absolute;width: 640px;height: 10080px;left: 0px;top: 0px;}
-.ts_text1{left: 50%;margin-left:-166px;top:234px;}
-.ts_text2{left: 50%;margin-left:-117px;top:460px;}
-.ts_text3{left: 50%;margin-left:-150px;top:555px;}
-.ts_phone{
-	position: absolute;background: url(../images/game/ts_phones.png);
-	left: 267px;bottom: 200px;width: 106px;height: 115px;overflow: hidden;
-}
-.ts_arrow{left: 209px;bottom: 215px;}
+.ts_text1{left: 50%;margin-left:-169px;top:270px;}
+.ts_text2{left: 50%;margin-left:-150px;top:350px;}
+.ts_text3{left: 50%;margin-left:-150px;top:770px;}
+.ts_phone{ position: absolute;background: url(../images/game/ts_phones.png);  left: 267px;top: 560px;width: 106px;height: 115px;overflow: hidden;  }
+.ts_arrow{left: 209px;top: 588px;}
 
 .djs_3{left: 293px;top: 45%;display: none;}
 .djs_2{left: 292px;top: 45%;display: none;}

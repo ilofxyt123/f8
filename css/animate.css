@@ -318,6 +318,11 @@
     animation-delay: 1.8s;
 }
 
+.opacity.delay20,.animate.delay20{
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
 .music_rotate {
     animation: music_rotate 2.2s linear infinite;
     -webkit-animation: music_rotate 2.2s linear infinite;
@@ -640,5 +645,65 @@
     animation-direction:normal;
     animation-fill-mode:forwards;
     animation-play-state:running;
+}
+
+@keyframes text_to_small
+{
+    0% {
+        transform:translateY(50px) scale(2,2);
+    }
+    100% {
+        transform:scale(1,1);
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes text_to_small
+{
+    0% {
+        transform:translateY(50px) scale(2,2);
+    }
+    100% {
+        transform:scale(1,1);
+        opacity:1;
+    }
+}
+
+.text_to_small
+{
+    animation: text_to_small 1.5s cubic-bezier(0.21, 0.97, 0.26, 0.97) 1;
+    -webkit-animation: text_to_small 1.5s cubic-bezier(0.21, 0.97, 0.26, 0.97) 1;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
+}
+
+@keyframes text_to_big
+{
+    0% {
+        transform:translateY(50px) scale(0.1,0.1);
+    }
+    100% {
+        transform:scale(1,1);
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes text_to_big
+{
+    0% {
+        transform:translateY(50px) scale(0.1,0.1);
+    }
+    100% {
+        transform:scale(1,1);
+        opacity:1;
+    }
+}
+
+.text_to_big
+{
+    animation: text_to_big 1.5s cubic-bezier(0.21, 0.97, 0.26, 0.97) 1;
+    -webkit-animation: text_to_big 1.5s cubic-bezier(0.21, 0.97, 0.26, 0.97) 1;
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode:forwards;
 }
 

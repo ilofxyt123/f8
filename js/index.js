@@ -550,7 +550,7 @@
 
                 setTimeout(function(){
                     $("#ts").fadeOut(500,function () {
-                        $(".ts_text").removeClass("delay18")
+                        $(".ts_text").removeClass("delay18 delay20")
                     });
                     $("#yun_1,#yun_4").addClass("move_to_right_short");
                     $("#yun_2,#yun_3").addClass("move_to_left_short");
