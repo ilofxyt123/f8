@@ -526,7 +526,7 @@
                 $(".P1").fadeIn();
             },
             carAnimationHand1:function(){
-                $(".arrow").fadeIn();
+                $(".startbtn").fadeIn();
                 $(this).off("webkitAnimationEnd").removeClass("opacity drive_from_bottom");
                 Data.p1touchAllow = true;
             },
@@ -1105,30 +1105,29 @@ $(function(){
         startY:0,
     };
 
-    $(".P1").on({
-        touchstart:function(e){
-            p1touch.startY = e.originalEvent.changedTouches[0].pageY;
-        },
-        touchend:function(e){
-            if(!main.a.p1touchAllow){return;};
-            if((e.originalEvent.changedTouches[0].pageY-p1touch.startY)<-30){
-                // main.a.car.addClass("car_leave").on("webkitAnimationEnd",main.f.carAnimationHand2);
-                    main.f.pgame();//视图层面
-                    document.getElementById("start").play();
-                    setTimeout(function(){
-                        main.a.car.addClass("car_leave");
-                        $(".arrow").fadeOut();
-                        $(".P1").addClass("PagetoUp");
-                    },1000);
-                    setTimeout(function(){
-                        // main.f.pausebgm();//bgm暂停
-                        main.f.p1leave();
-                        main.f.gameStart();//数据
-                    },1500);
-            }
-            $(".P1").off("touchend")
+    $(".startbtn").on({
+       touchstart:function(){
+           if(!main.a.p1touchAllow){return;};
+           $(this).addClass("press");
+           main.f.pgame();//视图层面
+           document.getElementById("start").play();
+           setTimeout(function(){
+               main.a.car.addClass("car_leave");
+               $(".startbtn").fadeOut();
+               $(".P1").addClass("PagetoUp");
+           },1000);
+           setTimeout(function(){
+               // main.f.pausebgm();//bgm暂停
+               main.f.p1leave();
+               main.f.gameStart();//数据
+           },1500);
+       },
+        touchend:function(){
+            $(this).removeClass("press");
+            main.a.p1touchAllow = false;
         }
     });
+
     $("body").on("touchmove",function(e){
         e.preventDefault();
     });
