@@ -753,7 +753,9 @@ $(function(){
         media = output.media,
         utils = output.utils;
     media.WxMediaInit();
-
+var link_new = "lufax://financelist?listtype=1000",
+    link_old = 'https://m.lu.com/list/#/?activityId=B2C20161017&_k=p1ixi8',
+    link_invite = "https://www.playlu.com/juice/show";
 var ios = utils.browser("iPhone");
 
     if(ios){
@@ -896,7 +898,7 @@ var ios = utils.browser("iPhone");
     });
 
     $(".ppr-btn1").on("touchstart",function(){//新用户注册
-        window.location.href = "https://m.lu.com/m/auth?actionId=lu010&actionType=20#cover";//新客
+        window.location.href = link_new;//新客
     });
 
 
@@ -926,14 +928,14 @@ var ios = utils.browser("iPhone");
        $(".new_k").fadeOut();
     });
     $(".newbtn").on("touchstart",function(){
-        window.location.href = "https://m.lu.com/m/auth?actionId=lu010&actionType=20#cover";//新用户注册
+        window.location.href = link_new;//新用户注册
     });
 
     $(".oldbtn2").on("touchstart",function(){//速去购买
-        window.location.href = "https://m.lu.com/list/#/?activityId=B2C20161017&_k=p1ixi8";//老客
+        window.location.href = link_old;//老客
     });
     $(".oldbtn3").on("touchstart",function(){//邀友来战
-        window.location.href = "https://www.playlu.com/juice/show";//好友推荐
+        window.location.href = link_invite;//好友推荐
     });
     $(".oldxx").on("touchstart",function(){
         $(".old_k").fadeOut();
@@ -961,15 +963,15 @@ var ios = utils.browser("iPhone");
     });
 
     $(".pm-btn1").on("touchstart",function(){//新用户注册
-        window.location.href = "https://m.lu.com/m/auth?actionId=lu010&actionType=20#cover";//新客
+        window.location.href = link_new;//新客
     });
 
     $(".pm-btn4").on("touchstart",function(){
-        window.location.href="https://www.playlu.com/juice/show";//好友推荐
+        window.location.href=link_invite;//好友推荐
     });
 
     $(".pm-btn3").on("touchstart",function(){
-        window.location.href="https://m.lu.com/list/#/?activityId=B2C20161017&_k=p1ixi8";//老客
+        window.location.href=link_old;//老客
     });
     /*----------更多活动------------*/
 
