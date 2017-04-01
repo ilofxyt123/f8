@@ -168,7 +168,7 @@ html,body{
 
 .P_more{z-index: 30;}
     .morebg{position:absolute;z-index:-1;left:0;top:0;}
-    .morexx{position: absolute;top:197px;right:40px;}
+    .morexx{position: absolute;top:197px;left:50%;margin-left:-25px;}
     .act1{width:622px;height:238px;position:absolute;top:270px;left:50%;margin-left:-311px;}
         .pm-2{}
         .pm-btn1{bottom:-25px;right:0;}

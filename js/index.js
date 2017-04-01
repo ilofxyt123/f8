@@ -641,7 +641,7 @@
                 $(".P_more").fadeIn();
             },
             pmoreleave:function(){
-                $(".P_more").hide();
+                $(".P_more").fadeOut();
             },
             pfill:function(){
                 $(".P_fill").fadeIn();
@@ -908,10 +908,10 @@ var ios = utils.browser("iPhone");
 
     /*----------未中奖页面按钮------------*/
     $(".new_user").on("touchstart",function(){
-        $(".new_k").removeClass("none");
+        $(".new_k").fadeIn();
     });
     $(".old_user").on("touchstart",function(){
-        $(".old_k").removeClass("none");
+        $(".old_k").fadeIn();
     });
     $(".invite").on("touchstart",function(){//邀友来战
         main.f.pshare();
@@ -923,7 +923,7 @@ var ios = utils.browser("iPhone");
     });
 
     $(".newxx").on("touchstart",function(){
-       $(".new_k").addClass("none");
+       $(".new_k").fadeOut();
     });
     $(".newbtn").on("touchstart",function(){
         window.location.href = "https://m.lu.com/m/auth?actionId=lu010&actionType=20#cover";//新用户注册
@@ -936,7 +936,7 @@ var ios = utils.browser("iPhone");
         window.location.href = "https://www.playlu.com/juice/show";//好友推荐
     });
     $(".oldxx").on("touchstart",function(){
-        $(".old_k").addClass("none");
+        $(".old_k").fadeOut();
     });
     /*----------未中奖页面按钮------------*/
 
