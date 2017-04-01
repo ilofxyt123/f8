@@ -754,10 +754,8 @@ $(function(){
         utils = output.utils;
     media.WxMediaInit();
 
-var audio1 = new Audio(),
-    ios = utils.browser("iPhone");
+var ios = utils.browser("iPhone");
 
-audio1.onloadedmetadata = function(){
     if(ios){
         main.f.iosStart();
     }
@@ -765,8 +763,6 @@ audio1.onloadedmetadata = function(){
         main.f.androidStart();
         main.f.playbgm();
     }
-};
-    audio1.src = "start.m4a";
 
 
     game.gameOverCallBack = function (e) {//数据层面
